@@ -1,2 +1,2 @@
-GET    /       controllers.Application.index()
-POST    /validateUser       controllers.Application.submit
+GET   /                    controllers.Application.index()
+POST  /validateUser        controllers.Application.submit

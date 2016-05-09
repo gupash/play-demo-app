@@ -2,6 +2,7 @@ package controllers
 
 import javax.inject.Singleton
 
+import models.User
 import play.api.data.Form
 import play.api.data.Forms._
 import play.api.data.validation.Constraints._
