@@ -18,5 +18,3 @@ resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"
 resolvers += Resolver.sonatypeRepo("releases")
 
 routesGenerator := InjectedRoutesGenerator
-
-fork in run := true

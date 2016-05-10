@@ -5,7 +5,6 @@ import javax.inject.Singleton
 import models.User
 import play.api.data.Form
 import play.api.data.Forms._
-import play.api.data.validation.Constraints._
 import play.api.mvc.{Action, Controller}
 
 @Singleton
@@ -13,8 +12,8 @@ class Application extends Controller {
 
   val userForm = Form(
     mapping(
-      "name" -> text.verifying(nonEmpty),
-      "age" -> number.verifying(min(18), max(30))
+      "name" -> nonEmptyText,
+      "age" -> number(18, 30)
     ) (User.apply) (User.unapply)
   )
 
@@ -24,7 +23,12 @@ class Application extends Controller {
 
   def submit = Action {
     implicit request =>
-      val currentUser = userForm.bindFromRequest.get
-      Ok(views.html.display(s"Hi ${currentUser.name} ${currentUser.age} !"))
+      val formRequest = userForm.bindFromRequest
+      formRequest.fold(
+        requestWithError => BadRequest(views.html.index(requestWithError)),
+        userData => Ok(views.html.display(s"Hi ${userData.name} ${userData.age} !"))
+      )
   }
+
+
 }

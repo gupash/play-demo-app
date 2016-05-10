@@ -8,13 +8,16 @@
 <html>
 <head>
     <title>Login Page</title>
+    <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/loginformstyling.css")">
 </head>
 <body>
 
-    @helper.form(action = controllers.routes.Application.submit) {
-        @helper.inputText(myForm("name"))
-        @helper.inputText(myForm("age"))
-        <input type="submit" value="submit"/>
+    @helper.form(action = controllers.routes.Application.submit, 'id -> "login_form") {
+        @helper.inputText(myForm("name"), '_showConstraints -> false, '_label -> "Name:")
+
+        @helper.inputText(myForm("age"), '_showConstraints -> false, '_label -> "Age:", 'id -> "agef")
+
+        <input id="submitbutton" type="submit" value="submit"/>
     }
 
 </body>

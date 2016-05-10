@@ -1,2 +1,3 @@
-GET    /        @controllers.Application.index()
-POST   /submit  @controllers.Application.submit()
+GET     /               controllers.Application.index()
+POST    /submit         controllers.Application.submit
+GET     /assets/*file   controllers.Assets.versioned(path="/public", file: Asset)
