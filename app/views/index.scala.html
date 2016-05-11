@@ -13,10 +13,8 @@
 <body>
 
     @helper.form(action = controllers.routes.Application.submit, 'id -> "login_form") {
-        @helper.inputText(myForm("name"), '_showConstraints -> false, '_label -> "Name:")
-
-        @helper.inputText(myForm("age"), '_showConstraints -> false, '_label -> "Age:", 'id -> "agef")
-
+        @helper.inputText(myForm("name"), '_showConstraints -> false, '_label -> "Name:", 'id -> "namef")
+        @helper.inputPassword(myForm("pass"), '_showConstraints -> false, '_label -> "Password:")
         <input id="submitbutton" type="submit" value="submit"/>
     }
 
