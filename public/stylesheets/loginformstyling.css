@@ -1,0 +1,18 @@
+#login_form dt {
+   margin-left: 10px;
+   display: inline;
+}
+
+#login_form dd {
+   margin-left: 10px;
+   display: inline;
+}
+
+#login_form #namef {
+   margin-left: 23px;
+   display: inline;
+}
+
+#login_form #submitbutton {
+   margin-left: 105px;
+}
