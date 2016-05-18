@@ -6,10 +6,11 @@ import models.User
 import play.api.cache.CacheApi
 import play.api.data.Form
 import play.api.data.Forms._
+import play.api.i18n.{I18nSupport, MessagesApi}
 import play.api.mvc.{Action, Controller, Result}
 
 @Singleton
-class Application @Inject() (cache: CacheApi) extends Controller {
+class Application @Inject() (cache: CacheApi, val messagesApi: MessagesApi) extends Controller with I18nSupport {
 
   val userForm = Form(
     mapping(
